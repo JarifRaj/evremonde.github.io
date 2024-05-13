@@ -1,0 +1,255 @@
+/*TO DO LIST:
+-Finish titlebar and footer
+-Apply all formatting to all pages
+-Come up with website name
+-Make website compatible with different kinds of displays
+-Finish roadmap to website
+-Add content to website
+-Organize code better*/
+
+@font-face {
+    font-family: sansationBold;
+    src: url(Montserrat-Bold.ttf);
+ }
+ @font-face {
+    font-family: sansation;
+    src: url(Montserrat-Regular.ttf);
+ }
+ @font-face {
+  font-family: carmela;
+  src: url(Carmela.ttf);
+ }
+
+
+
+
+@keyframes animation {
+    0% {transform: translate(-50%, -50%) scale(1); }
+    100% {transform: translate(-50%, -50%) scale(1.10);}
+}
+
+
+
+body {
+    background-color: #15171A;
+    color:white;
+    overflow-x: hidden;
+
+}
+
+
+
+
+#paragraph {
+    position: absolute;
+    top: 58%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    font-size: 120%;
+    font-family: sansation, Verdana, Tahoma, Geneva, sans-serif;
+    padding: 10px;
+    line-height: 169%;
+    width: 600px;
+    z-index: 3;
+
+}
+footer{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    background-color: #333;
+    width: 100%;
+    font-family: sansation, Geneva, Verdana, Tahoma, sans-serif;
+    z-index: 3;
+
+
+}
+
+#portfolioLink{
+    color: green;
+    z-index: 3;
+
+}
+
+.generalText{
+  z-index: 3;
+
+    font-family: sansation, Verdana, Geneva, Tahoma, sans-serif;
+}
+
+#introTitle{
+    position: absolute;
+    font-size: 1200%;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);    
+    letter-spacing: -2%;
+    font-family: carmela, sansationBold, Verdana, Geneva, Tahoma, sans-serif;
+    background: linear-gradient(to bottom right, #2da0ff, rgb(255, 255, 255));
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    z-index: 3;
+
+}
+
+.footerText{
+    padding: 0 10px;
+    z-index: 3;
+
+}
+
+
+  /* The cursor effect */
+  @keyframes rotate {
+    from {
+      transform: translate(-50%, -50%) rotate(0deg); /* Start rotation from 0 degrees */
+    }
+    
+    50% {
+      transform: translate(-50%, -50%) scale(1) rotate(5deg); /* Scale and rotate at 50% */
+    }
+    
+    to {
+      transform: translate(-50%, -50%) rotate(360deg); /* Rotate to 360 degrees */
+    }
+  }
+
+#blob {
+  background-color: white;
+  height: 34vmax;
+  aspect-ratio: 1;
+  position: fixed; /* Use fixed positioning */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Center the blob */
+  border-radius: 50%;
+  background: linear-gradient(to right, rgb(255, 255, 255), #2da0ff);
+  animation: rotate 20s infinite;
+  opacity: 0.8;
+}
+
+
+
+#blur {
+  height: 100vh; /* Set height to 100vh for full viewport height */
+  width: 100vw; /* Set width to 100vw for full viewport width */
+  position: fixed; /* Use fixed positioning instead of absolute */
+  top: 0; /* Position at the top */
+  left: 0; /* Position at the left */
+  z-index: 2;
+  backdrop-filter: blur(12vmax);
+}
+
+  
+
+  #button{
+    background: transparent;
+    max-width: 200px;
+    width: 100%;
+    color: white;
+    border: 3px;
+    border-color: white;
+    border-style: solid;
+    border-radius: 10px;
+    font-size: 25px;
+    font-family: sansation, 'Verdana', 'Tahoma', 'Trebuchet MS', sans-serif;
+    position: absolute;
+    text-align: center;
+    top: 67%;
+    left: 50%;
+    transform: translate(-50%, -50%); 
+    z-index: 3;
+  }
+
+  
+
+  .menu-item {
+    position: absolute;
+    z-index: 3;
+  }
+  
+  #menu[data-active-index="0"] > #menu-background-pattern {
+    background-position: 0% -25%;
+  }
+  
+  #menu[data-active-index="1"] > #menu-background-pattern {
+    background-position: 0% -50%;
+  }
+  
+  #menu[data-active-index="2"] > #menu-background-pattern {
+    background-position: 0% -75%;
+  }
+  
+  #menu[data-active-index="3"] > #menu-background-pattern {
+    background-position: 0% -100%;
+  }
+  
+  #menu[data-active-index="0"] > #menu-background-image {
+    background-position: center 45%;
+  }
+  
+  #menu[data-active-index="1"] > #menu-background-image {
+    background-position: center 50%;
+  }
+  
+  #menu[data-active-index="2"] > #menu-background-image {
+    background-position: center 55%;
+  }
+  
+  #menu[data-active-index="3"] > #menu-background-image {
+    background-position: center 60%;
+  }
+  
+  #menu-background-pattern {
+    background-image: radial-gradient(
+      rgba(255, 255, 255, 0.1) 9%, 
+      transparent 9%
+    );
+    background-position: 0% 0%;
+    background-size: 12vmin 12vmin;
+    height: 100vh;
+    left: 0px;
+    position: absolute;
+    top: 0px;
+    transition: opacity 800ms ease, 
+      background-size 800ms ease,
+      background-position 800ms ease;
+    width: 100vw;
+    z-index: 2;
+  }
+  
+  #menu-background-image {
+    background-position: center 40%;
+    background-size: 110vmax;
+    height: 100%;
+    left: 0px;  
+    opacity: 0.15;
+    position: absolute;
+    top: 0px;
+    transition: opacity 800ms ease,
+      background-size 800ms ease,
+      background-position 800ms ease;
+    width: 100%;
+    z-index: 0;
+  }
+  
+  .menu-item:hover ~ #menu-background-pattern {
+    background-size: 11vmin 11vmin;
+    opacity: 0.5;
+  }
+  
+  .menu-item:hover ~ #menu-background-image {
+    background-size: 100vmax;
+    opacity: 0.1;
+  }
+  
+  .menu-item:hover > .menu-item {
+    opacity: 0.3;
+  }
+  
+  .menu-item:hover > .menu-item:hover {
+    opacity: 1; 
+  }
+  

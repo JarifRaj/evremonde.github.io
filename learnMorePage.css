@@ -1,0 +1,275 @@
+a { color:white } /* Globally */
+
+/* Each state */
+
+a:visited { text-decoration: none; color:white; }
+a:hover { text-decoration: none; color:white; }
+a:focus { text-decoration: none; color:white; }
+a:hover, a:active { text-decoration: none; color:white }
+
+@font-face {
+  font-family: sansationBold;
+  src: url(Sansation_Bold.ttf);
+}
+@font-face {
+  font-family: sansation;
+  src: url(Montserrat-Regular.ttf);
+}
+
+@font-face {
+  font-family: carmela;
+  src: url(Carmela.ttf);
+}
+body {
+  background-color: rgb(20, 20, 20);
+  margin: 0px;
+}
+
+#menu {  
+  align-items: center;
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+}
+
+#menu-items {
+  margin-left: clamp(4rem, 20vw, 48rem);
+  position: relative;
+  z-index: 3;
+}
+
+#menu[data-active-index="0"] > #menu-background-pattern {
+  background-position: 0% -25%;
+}
+
+#menu[data-active-index="1"] > #menu-background-pattern {
+  background-position: 0% -50%;
+}
+
+#menu[data-active-index="2"] > #menu-background-pattern {
+  background-position: 0% -75%;
+}
+
+#menu[data-active-index="3"] > #menu-background-pattern {
+  background-position: 0% -100%;
+}
+
+#menu[data-active-index="0"] > #menu-background-image {
+  background-position: center 45%;
+}
+
+#menu[data-active-index="1"] > #menu-background-image {
+  background-position: center 50%;
+}
+
+#menu[data-active-index="2"] > #menu-background-image {
+  background-position: center 55%;
+}
+
+#menu[data-active-index="3"] > #menu-background-image {
+  background-position: center 60%;
+}
+
+#menu-background-pattern {
+  background-image: radial-gradient(
+    rgba(255, 255, 255, 0.1) 9%, 
+    transparent 9%
+  );
+  background-position: 0% 0%;
+  background-size: 12vmin 12vmin;
+  height: 100vh;
+  left: 0px;
+  position: absolute;
+  top: 0px;
+  transition: opacity 800ms ease, 
+    background-size 800ms ease,
+    background-position 800ms ease;
+  width: 100vw;
+  z-index: 2;
+}
+
+#menu-background-image {
+  background-image: url("https://upload.wikimedia.org/wikipedia/commons/f/fc/T2C%2C_Fred_Barnard%2C_Dr_Manette%27s_epistolary_denunciation_of_the_Evr%C3%A9mondes_brothers_%28III%2C8%29.jpeg");
+  background-position: center 40%;
+  background-size: 110vmax;
+  height: 100%;
+  left: 0px;  
+  opacity: 0.15;
+  position: absolute;
+  top: 0px;
+  transition: opacity 800ms ease,
+    background-size 800ms ease,
+    background-position 800ms ease;
+  width: 100%;
+  z-index: 0;
+}
+
+#menu-items:hover ~ #menu-background-pattern {
+  background-size: 11vmin 11vmin;
+  opacity: 0.5;
+}
+
+#menu-items:hover ~ #menu-background-image {
+  background-size: 100vmax;
+  opacity: 0.1;
+}
+
+#menu-items:hover > .menu-item {
+  opacity: 0.3;
+}
+
+#menu-items:hover > .menu-item:hover {
+  opacity: 1; 
+}
+
+.menu-item {
+  color: white;
+  display: block;
+  font-family: carmela, serif;
+  font-size: clamp(3rem, 8vw, 8rem);
+  padding: clamp(0.25rem, 0.5vw, 1rem) 0rem;
+  text-decoration: none;
+  transition: opacity 400ms ease;
+}
+
+@keyframes rotate {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg); /* Start rotation from 0 degrees */
+  }
+  
+  50% {
+    transform: translate(-50%, -50%) scale(1) rotate(5deg); /* Scale and rotate at 50% */
+  }
+  
+  to {
+    transform: translate(-50%, -50%) rotate(360deg); /* Rotate to 360 degrees */
+  }
+}
+
+#blob {
+background-color: white;
+height: 34vmax;
+aspect-ratio: 1;
+position: fixed; /* Use fixed positioning */
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%); /* Center the blob */
+border-radius: 50%;
+background: linear-gradient(to right, rgb(255, 255, 255), #2da0ff);
+animation: rotate 20s infinite;
+opacity: 0.8;
+}
+
+
+
+#blur {
+height: 100vh; /* Set height to 100vh for full viewport height */
+width: 100vw; /* Set width to 100vw for full viewport width */
+position: fixed; /* Use fixed positioning instead of absolute */
+top: 0; /* Position at the top */
+left: 0; /* Position at the left */
+z-index: 2;
+backdrop-filter: blur(12vmax);
+}
+
+
+
+.footerText{
+    padding: 0 10px;
+}
+
+ /* The navigation menu */
+ .navbar {
+    overflow: hidden;
+    background-color: #333;
+    padding: 0;
+    width: 100%;
+    top: 0%;
+    left: 0%;
+    position: fixed;
+    font-family: sansation, Verdana, Geneva, Tahoma, sans-serif;
+  }
+  
+  /* Navigation links */
+  .navbar a {
+    float: left;
+    font-size: 16px;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  
+  /* The subnavigation menu */
+  .subnav {
+    float: left;
+    overflow: hidden;
+  }
+  
+  /* Subnav button */
+  .subnav .subnavbtn {
+    font-size: 16px;
+    border: none;
+    outline: none;
+    color: white;
+    padding: 14px 16px;
+    background-color: inherit;
+    font-family: inherit;
+    margin: 0;
+  }
+  
+  /* Add a red background color to navigation links on hover */
+  .navbar a:hover, .subnav:hover .subnavbtn {
+    background-color: green;
+  }
+  
+  /* Style the subnav content - positioned absolute */
+  .subnav-content {
+    display: none;
+    position: fixed;
+    left: 0;
+    background-color: green;
+    width: 100%;
+    z-index: 1;
+  }
+  
+  /* Style the subnav links */
+  .subnav-content a {
+    float: left;
+    color: white;
+    text-decoration: none;
+  }
+  
+  /* Add a grey background color on hover */
+  .subnav-content a:hover {
+    background-color: #eee;
+    color: black;
+  }
+  
+  /* When you move the mouse over the subnav container, open the subnav content */
+  .subnav:hover .subnav-content {
+    display: block;
+  } 
+
+  footer{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    background-color: #333;
+    width: 100%;
+    font-family: sansation, Geneva, Verdana, Tahoma, sans-serif;
+    z-index: 2;
+
+}
+
+.footerText{
+    padding: 0 10px;
+    color: white;
+}
+
+
+body {
+  background-color: #15171A;
+  color:white;
+  overflow-x: hidden;
+}
